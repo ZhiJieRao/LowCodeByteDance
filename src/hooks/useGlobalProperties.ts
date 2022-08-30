@@ -1,9 +1,6 @@
 /**
  * @name: useGlobalProperties
- * @author: 卜启缘
- * @date: 2021/5/3 21:13
  * @description：useGlobalProperties
- * @update: 2021/5/3 21:13
  */
 import { getCurrentInstance } from 'vue';
 import { RouteLocationNormalizedLoaded, Router } from 'vue-router';

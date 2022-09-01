@@ -1,10 +1,5 @@
 <!--
- * @Author: 卜启缘
- * @Date: 2021-06-01 09:45:21
- * @LastEditTime: 2021-07-13 21:59:22
- * @LastEditors: 卜启缘
  * @Description: 效果预览页面
- * @FilePath: \vite-vue3-lowcode\preview\views\preview.vue
 -->
 <template>
   <template v-for="outItem in blocks" :key="outItem._vid">

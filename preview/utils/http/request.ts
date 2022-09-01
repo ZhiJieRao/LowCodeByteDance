@@ -8,10 +8,10 @@ import { Toast } from 'vant';
 import { ContentTypeEnum } from './httpEnum';
 import router from '@/router';
 
-// create an axios instance
+// 自定义配置新建一个 axios 实例
 const service = axios.create({
   baseURL: import.meta.env.VITE_API_URL as string, // url = base api url + request url
-  withCredentials: true, // send cookies when cross-domain requests
+  withCredentials: true, // 表示跨域请求时需要使用凭证
   timeout: 10000, // request timeout
 });
 interface CustomAxiosRequestConfig extends AxiosRequestConfig {
@@ -23,8 +23,10 @@ interface BaseResponse<T = any> {
   data: T;
   msg: string;
 }
-
-// request拦截器 request interceptor
+/* 
+  在发送请求的时候会优先调用use中的回调函数，做一下预处理
+  请求拦截器相当一个预处理的过程
+*/
 service.interceptors.request.use(
   (config: CustomAxiosRequestConfig) => {
     // 不传递默认开启loading
@@ -56,7 +58,8 @@ service.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-// respone拦截器
+
+//response拦截器(在响应之后对数据进行一些处理)
 service.interceptors.response.use(
   (response) => {
     Toast.clear();

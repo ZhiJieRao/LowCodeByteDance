@@ -10,6 +10,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
+  // 路由模式路径带#号
   history: createWebHashHistory(),
   routes,
 });
